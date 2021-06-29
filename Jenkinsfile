@@ -38,7 +38,7 @@ pipeline {
                 }
             }
         }
-        stage('DeployToProduction') {
+       stage('DeployToProduction') {
             when {
                 branch 'master'
             }
@@ -48,8 +48,8 @@ pipeline {
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube.yml',
-                    enableConfigSubstitution: true//implement Kubernetes deployment here
+                    enableConfigSubstitution: true
+                )
             }
         }
-    }
 }
